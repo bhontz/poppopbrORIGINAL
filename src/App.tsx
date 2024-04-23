@@ -35,6 +35,10 @@ function App() {
           consequuntur porro ea in debitis similique nihil blanditiis culpa! Sit
           a sed voluptas veniam nam, eveniet officia delectus. Molestiae, velit
           sunt!
+          <br />
+          <button type="button" className="btn btn-outline-primary">
+            Primary
+          </button>
         </div>
       </div>
     </div>
