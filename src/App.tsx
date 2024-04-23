@@ -2,8 +2,14 @@
 
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
+import Button from "./components/Button";
+import { useState } from "react";
+
+// onClick={() => console.log("Clicked")}
 
 function App() {
+  const [alertVisible, setAlertVisibility] = useState(false);
+
   let items = [
     "New York",
     "Los Angeles",
@@ -21,46 +27,13 @@ function App() {
 
   return (
     <div className="container-xl my-5">
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Navbar w/ text
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarText"
-            aria-controls="navbarText"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarText">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Features
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Pricing
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>{" "}
       <div className="row">
         <div className="col">
-          <Alert>Hey you got a warning going on here!</Alert>
+          {alertVisible && (
+            <Alert onClose={() => setAlertVisibility(false)}>
+              Hey you got a warning going on here!
+            </Alert>
+          )}
           <ListGroup
             items={items}
             title="Da Cities Here"
@@ -73,9 +46,9 @@ function App() {
           a sed voluptas veniam nam, eveniet officia delectus. Molestiae, velit
           sunt!
           <br />
-          <button type="button" className="btn btn-outline-primary">
-            Primary
-          </button>
+          <Button color="success" onClick={() => setAlertVisibility(true)}>
+            Raise the Alert!
+          </Button>
         </div>
       </div>
     </div>
