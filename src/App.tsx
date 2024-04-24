@@ -25,6 +25,16 @@ function App() {
     console.log(item);
   };
 
+  const submitForm = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const payload = Object.fromEntries(formData);
+
+    console.log(payload);
+    console.log("shit happened");
+  };
+
   return (
     <div className="container-xl my-5">
       <div className="row">
@@ -70,6 +80,19 @@ function App() {
             title="Da Cities Here"
             onSelectItem={handleSelectItem}
           />
+          <br />
+          <form onSubmit={submitForm}>
+            <div className="mb-3">
+              <label className="form-label">Your Name:</label>
+              <input
+                type="text"
+                className="form-control"
+                id="formGroupExampleInput"
+                placeholder="Enter your name here"
+                name="yourname"
+              />
+            </div>
+          </form>
         </div>
         <div className="col">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores
