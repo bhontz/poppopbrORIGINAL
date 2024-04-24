@@ -28,6 +28,37 @@ function App() {
   return (
     <div className="container-xl my-5">
       <div className="row">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">
+            <img
+              src="https://res.cloudinary.com/dpeqsj31d/image/upload/v1707263738/avatar_4_4.png"
+              alt="Logo"
+              width="50"
+              height="50"
+              className="d-inline-block align-text-top"
+            />
+            Navbar
+          </a>
+          <ul className="nav justify-content-end">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="#">
+                Active Link
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                Link 1
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                Link 2
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="row">
         <div className="col">
           {alertVisible && (
             <Alert onClose={() => setAlertVisibility(false)}>
