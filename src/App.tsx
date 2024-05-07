@@ -1,11 +1,11 @@
 // reference YouTube video: https://youtu.be/SqcY0GlETPk?si=y1FKap_zdPvmRytS
+// form information from YT video: https://youtu.be/CT-72lTXdPg?si=gYJ_6TyQb3nwqm5t
+// NOTE: we put the forms into separate component tsx files
 
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import { useState } from "react";
-
-// onClick={() => console.log("Clicked")}
 
 function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
@@ -80,19 +80,6 @@ function App() {
             title="Da Cities Here"
             onSelectItem={handleSelectItem}
           />
-          <br />
-          <form onSubmit={submitForm}>
-            <div className="mb-3">
-              <label className="form-label">Your Name:</label>
-              <input
-                type="text"
-                className="form-control"
-                id="formGroupExampleInput"
-                placeholder="Enter your name here"
-                name="yourname"
-              />
-            </div>
-          </form>
         </div>
         <div className="col">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores
@@ -104,6 +91,35 @@ function App() {
             Raise the Alert!
           </Button>
         </div>
+      </div>
+      <div className="row">
+        <form onSubmit={submitForm}>
+          <div className="mb-3">
+            <label className="form-label">Your Name:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="formGroupExampleInputName"
+              placeholder="Enter your Name here"
+              name="yourname"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Your Address:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="formGroupExampleInputAddress"
+              placeholder="Enter your Address here"
+              name="youraddress"
+            />
+          </div>
+          <div className="mb-3">
+            <button type="submit" className="btn btn-primary mb-3">
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
