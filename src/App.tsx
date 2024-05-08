@@ -6,9 +6,12 @@ import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import { useState } from "react";
+import type { Schema } from "../backend/amplify/data/resource";
+import { generateClient } from "aws-amplify/data";
 
 function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
+  const client = generateClient<Schema>();
 
   let items = [
     "New York",
@@ -25,14 +28,23 @@ function App() {
     console.log(item);
   };
 
-  const submitForm = (e: React.ChangeEvent<HTMLFormElement>) => {
+  const submitForm = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
     const payload = Object.fromEntries(formData);
 
     console.log(payload);
+    console.log(payload.yourname);
+    console.log(payload.youraddress);
+
+    await client.models.Donate.create({
+      name: payload.yourname as string,
+      address: payload.youraddress as string,
+    });
+
     console.log("shit happened");
+    isDone: false;
   };
 
   return (
